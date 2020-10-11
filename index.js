@@ -16,8 +16,8 @@ function searchTitle() {
       return respuesta.json();
     })
     .then(function (datos) {
-      for (let i = 0; i < datos.results.length; i++) {
-        opciones += `<p>${datos.search[i].Title}</p>`;
+      for (let i = 0; i < datos.Search.length; i++) {
+        opciones += `<p>${datos.Search[i].Title}</p>`;
       }
       document.getElementById("div").innerHTML = opciones;
     });
