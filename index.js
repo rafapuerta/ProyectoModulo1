@@ -19,10 +19,10 @@ let opciones = ""
 
 /*----------------------------------------- Funciones -----------------------------------------*/
 
-function searchTitle() {
+function search() {
   busqueda = document.getElementById("busqueda").value;
   console.log(busqueda);
-  newUrl = url + "?s=" + busqueda
+  newUrl = url + "&s=" + busqueda
   console.log(newUrl)
   fetch(newUrl)
     .then(function (respuesta) {
