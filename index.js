@@ -2,9 +2,22 @@ const url = "http://www.omdbapi.com/?apikey=22e38317";
 let busqueda = ""
 let newUrl = ""
 let opciones = ""
-/* Declaración de variables */
+/*----------------------------------------- Declaración de variables -----------------------------------------*/
 
-/* Funciones */
+
+
+/* fetch("http://www.omdbapi.com/?apikey=22e38317&s=Batman")
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      for (let i = 0; i < datos.Search.length; i++) {
+        opciones += `<p>${datos.Search[i].Title}</p>`;
+      }
+      document.getElementById("div").innerHTML = opciones;
+    }); */
+
+/*----------------------------------------- Funciones -----------------------------------------*/
 
 function searchTitle() {
   busqueda = document.getElementById("busqueda").value;
