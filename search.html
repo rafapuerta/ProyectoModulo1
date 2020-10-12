@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proyecto 1 - Búsqueda</title>
-    <link rel="icon" href="./images/favicon.png" type="image/png"/>
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/png"/>  
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="icon" href="./images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="search.html" class="active">Búsqueda</a></li>
-                <li><a href="about.html">Información</a></li>
-              </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="about.html">Información</a></li>
+          <li><a href="search.html" class="active">Búsqueda</a></li>
+          <li><a href="index.html">Inicio</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-            <input type="text"  id="busqueda"><button onclick="search()">Buscar</button>
+      <select name="Tipo" id="tipo">
+        <option value="movie">Película</option>
+        <option value="series">Serie</option>
+        <option value="episode">Episodio</option>
+      </select>
+      <input type="text" id="busqueda" placeholder="Buscar en Proyecto 1" />
+      <input type="text" id="anyo" placeholder="Año" />
+
+      <button onclick="search()">Buscar</button>
+
+      <div id="div"></div>
+      <div id="div2"></div>
     </main>
     <footer>
-        <div class="footer">
-            <p>2020© Rafa Incorporated</p>
-        </div>
+      <div class="footer">
+        <p>2020© Rafa Incorporated</p>
+      </div>
     </footer>
-    <script src="index.js"></script>
-</body>
+    <script src="index.js">
+    </script>
+  </body>
 </html>

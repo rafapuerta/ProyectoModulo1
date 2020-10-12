@@ -1,37 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proyecto 1 - Inicio</title>
-    <link rel="icon" href="./images/favicon.png" type="image/png"/>
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/png"/>  
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="icon" href="./images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="search.html">Búsqueda</a></li>
-                <li><a href="about.html">Información</a></li>
-              </ul>
-        </nav>
+      <nav>
+        <ul>
+            <li><a href="about.html">Información</a></li>
+            <li><a href="search.html">Búsqueda</a></li>
+            <li><a href="index.html" class="active">Inicio</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae animi, ipsam doloremque amet, sint labore voluptates expedita alias nulla repellat, quasi facilis consequuntur debitis. Voluptatem, atque eaque a in distinctio sapiente corporis tempora ab dolorum rerum animi aut repellendus sunt cum possimus impedit voluptas? Tenetur iure hic non ad numquam ea delectus, obcaecati iste?</p>
-            <input type="text"  id="busqueda"><button onclick="search()">Buscar</button>
-        <div id="div"></div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae animi, ipsam doloremque amet, sint labore voluptates expedita alias nulla repellat, quasi facilis consequuntur debitis. Voluptatem, atque eaque a in distinctio sapiente corporis tempora ab dolorum rerum animi aut repellendus sunt cum possimus impedit voluptas? Tenetur iure hic non ad numquam ea delectus, obcaecati iste?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae animi, ipsam doloremque amet, sint labore voluptates expedita alias nulla repellat, quasi facilis consequuntur debitis. Voluptatem, atque eaque a in distinctio sapiente corporis tempora ab dolorum rerum animi aut repellendus sunt cum possimus impedit voluptas? Tenetur iure hic non ad numquam ea delectus, obcaecati iste?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae animi, ipsam doloremque amet, sint labore voluptates expedita alias nulla repellat, quasi facilis consequuntur debitis. Voluptatem, atque eaque a in distinctio sapiente corporis tempora ab dolorum rerum animi aut repellendus sunt cum possimus impedit voluptas? Tenetur iure hic non ad numquam ea delectus, obcaecati iste?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae animi, ipsam doloremque amet, sint labore voluptates expedita alias nulla repellat, quasi facilis consequuntur debitis. Voluptatem, atque eaque a in distinctio sapiente corporis tempora ab dolorum rerum animi aut repellendus sunt cum possimus impedit voluptas? Tenetur iure hic non ad numquam ea delectus, obcaecati iste?</p>
+      <div id="landing">
+        <div class="polaroid">
+            <img id="Poster" src="" style="width:100%";/>
+            <div class="container">
+                <h1 id="titulo"></h1>
+                <h4 id="anno"></h4>
+            </div>
+        </div>
+          <div id="intro">
+            <h1>Poyecto 1</h1>
+            <h3>Hola!</h3>
+            <p>
+                Este sitio está concebido y diseñado como una prueba conceptual de
+                una interfaz para la consulta de una base de datos mediante la
+                utilización de su API pública.
+            </p>
+            <p>
+                Como proyecto de nivel básico, puede estar plagado de errores e incongruencias y por eso te pido que tengas paciencia y seas benevolente con su uso
+            </p>
+            <p>
+                Tienes la sección <a href="./search.html">Búsqueda</a> donde realizar consultas a la base de datos y donde navegar por su contenido.
+                La sección <a href="about.html">Información</a> cuenta un poco mas de la historia de este proyecto.
+            </p>
+            <p>
+                Espero que disfrutes de su uso y gracias!
+            </p>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
-        <div class="footer">
-            <p>2020© Rafa Incorporated</p>
-        </div>
+      <div class="footer">
+        <p>2020© Rafa Incorporated</p>
+      </div>
     </footer>
-    <script src="index.js"></script>
-</body>
+    <script src="index.js">
+      window.onload = randomPeli();
+    </script>
+  </body>
 </html>

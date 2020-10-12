@@ -42,8 +42,64 @@ main {
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
-
 /*----------------------------------------- Fin estilo Main -----------------------------------------*/
+/*----------------------------------------- Inicio estilo Index -----------------------------------------*/
+
+div.polaroid {
+  width: 20%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+#intro {
+  width: 50%;
+  margin: 5%;
+}
+#landing {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+/*----------------------------------------- Fin estilo Index -----------------------------------------*/
+/*----------------------------------------- Inicio estilo Search -----------------------------------------*/
+input {
+  border: 2px solid darkgray;
+}
+select {
+  border: 2px solid darkgray;
+
+}
+
+#anyo {
+
+  width: 30px;
+}
+
+#div img{
+  max-width: 100px;
+}
+
+#div a {
+  text-decoration: none;
+  color: #000;
+}
+
+#div a:hover {
+  color:  #e0bf02;
+}
+table {
+  table-layout: auto;
+}
+/*----------------------------------------- Inicio estilo Search -----------------------------------------*/
 /*----------------------------------------- Inicio estilo Footer -----------------------------------------*/
 footer {
     position: fixed;
