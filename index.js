@@ -7,7 +7,8 @@ let randomUrl = "";
 let opciones = "";
 let poster = "";
 let resultado = "";
-let listafavoritos = [];
+let listaFavoritos = [];
+let listaTemporal = []
 /*----------------------------------------- Declaración de variables -----------------------------------------*/
 
 /*----------------------------------------- Funciones -----------------------------------------*/
@@ -26,6 +27,7 @@ function search() {
         window.alert("Ha habido un error, por favor, vuelve a intentarlo");
       } else {
         for (let i = 0; i < datos.Search.length; i++) {
+          listaTemporal.push (datos.Search[i].imdbID)
           opciones += `<div class="polaroid">
         <img id="Poster" src="${
           datos.Search[i].Poster
@@ -37,7 +39,7 @@ function search() {
           <h4 id="anno">${datos.Search[i].Year}</h4>
         </div>
         <div id="favorito">
-          <i onclick="hacerFavorito(${datos.Search[i].imdbID})" id="favorito" class="material-icons">${esFavorito(datos.Search[i].imdbID)}</i>
+          <i onclick="hacerFavorito(${i})" id="favorito" class="material-icons">${esFavorito(datos.Search[i].imdbID)}</i>
         </div>
       </div>
       `;
@@ -118,6 +120,6 @@ function esFavorito(id) {
 }
 
 function hacerFavorito(id) {
-  listafavoritos.push(id);
-  localStorage.setItem("listafavoritos", JSON.stringify(listafavoritos));
+  listaFavoritos.push(listaTemporal[id]);
+  localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos));
 }
