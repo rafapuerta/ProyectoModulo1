@@ -14,6 +14,7 @@ let listaTemporal = []
 /*----------------------------------------- Funciones -----------------------------------------*/
 
 function search() {
+  listaTemporal = []
   opciones = "";
   busqueda = document.getElementById("busqueda").value;
   anyo = document.getElementById("anyo").value;
@@ -50,7 +51,7 @@ function search() {
     });
 }
 
-function peliID(id) {
+/* function peliID(id) {
   fetch(url + "&i=" + id)
     .then(function (respuesta) {
       return respuesta.json();
@@ -62,7 +63,7 @@ function peliID(id) {
       <img src="${datos.Poster}" alt="${datos.Title}" />
       <h3>${datos.Director}</h3>`;
     });
-}
+} */
 
 function finalUrl(string, anyo, tipo) {
   if (anyo !== "") {
@@ -72,8 +73,6 @@ function finalUrl(string, anyo, tipo) {
   }
   return newUrl;
 }
-
-
 
 
 
@@ -110,8 +109,8 @@ function letrasRandom(tamano) {
 
 
 function esFavorito(id) {
-  for (let i = 0; i <= listafavoritos.length; i++) {
-    if (listafavoritos[i] == id) {
+  for (let i = 0; i <= listaFavoritos.length; i++) {
+    if (listaFavoritos[i] == id) {
       return "favorite";
     } else {
       return "favorite_border";
