@@ -5,6 +5,9 @@ header {
     top: 0;
     width: 100%;
   }
+  header div{
+    background-color: #333;
+  }
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -40,12 +43,16 @@ main {
   padding: 50px 40px 50px 40px;
 }
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 /*----------------------------------------- Fin estilo Main -----------------------------------------*/
 /*----------------------------------------- Inicio estilo Index -----------------------------------------*/
 
 div.polaroid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 20%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -64,7 +71,9 @@ div.container {
   width: 50%;
   margin: 5%;
 }
-
+#intro p {
+  text-align: justify;
+}
 #intro a {
   text-decoration: none;
   color: black;
@@ -121,6 +130,22 @@ select {
 }
 
 /*----------------------------------------- Inicio estilo Search -----------------------------------------*/
+/*----------------------------------------- Inicio estilo Favorites -----------------------------------------*/
+#divFavoritos {
+  text-align: center;
+}
+
+#peliFavorita {
+  display: flex;
+}
+#peliFavoritaPoster img {
+  width: 200px;
+}
+#peliFavoritaDatos {
+  text-align: left;
+  margin: 0px 20px 0px 20px ;
+}
+/*----------------------------------------- Fin estilo Favorites -----------------------------------------*/
 /*----------------------------------------- Inicio estilo Footer -----------------------------------------*/
 footer {
     position: fixed;
