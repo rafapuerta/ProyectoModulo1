@@ -8,7 +8,6 @@ let opciones = "";
 let poster = "";
 let resultado = "";
 /*----------------------------------------- Declaración de variables -----------------------------------------*/
-window.onload = randomPeli();
 
 /*----------------------------------------- Funciones -----------------------------------------*/
 
@@ -25,7 +24,6 @@ function search() {
       if (datos.Response === "False") {
         window.alert("Ha habido un error, por favor, vuelve a intentarlo");
       } else {
-      console.log(newUrl);
       for (let i = 0; i < datos.Search.length; i++) {
         opciones += `<div class="polaroid">
         <img id="Poster" src="${datos.Search[i].Poster}" style="width: 100%" ; />
@@ -34,7 +32,7 @@ function search() {
           <h4 id="anno">${datos.Search[i].Year}</h4>
         </div>
         <div id="favorito">
-          <a onclick="favorito()" href="" ><img id="heart" src="images/heart-outline.svg" alt="favorito"/></a>
+          <img onclick="favorito()" id="heart" src="images/heart-outline.svg" alt="favorito"/>
         </div>
       </div>
       `;
