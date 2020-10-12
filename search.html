@@ -13,23 +13,23 @@
       <nav>
         <ul>
           <li><a href="about.html">Información</a></li>
+          <li><a href="favorites.html">Favoritos</a></li>
           <li><a href="search.html" class="active">Búsqueda</a></li>
           <li><a href="index.html">Inicio</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <select name="Tipo" id="tipo">
-        <option value="movie">Película</option>
-        <option value="series">Serie</option>
-        <option value="episode">Episodio</option>
-      </select>
-      <input type="text" id="busqueda" placeholder="Buscar en Proyecto 1" />
-      <input type="text" id="anyo" placeholder="Año" />
-
-      <button onclick="search()">Buscar</button>
-
-      <div id="div"></div>
+      <div id="divSearch">
+        <select name="Tipo" id="tipo">
+          <option value="movie">Película</option>
+          <option value="series">Serie</option>
+          <option value="episode">Episodio</option>
+        </select>
+        <input type="text" id="busqueda" placeholder="Buscar en Proyecto 1" />
+        <input type="text" id="anyo" placeholder="Año" />
+        <button onclick="search()">Buscar</button>
+      </div>
       <div id="div2"></div>
     </main>
     <footer>
@@ -37,7 +37,6 @@
         <p>2020© Rafa Incorporated</p>
       </div>
     </footer>
-    <script src="index.js">
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>

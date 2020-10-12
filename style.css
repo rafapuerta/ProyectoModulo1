@@ -49,11 +49,12 @@ div.polaroid {
   width: 20%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
+  margin: 20px;
 }
 
 div.container {
   text-align: center;
+  align-items: baseline;
   padding: 10px 20px;
 }
 
@@ -71,6 +72,10 @@ div.container {
 
 /*----------------------------------------- Fin estilo Index -----------------------------------------*/
 /*----------------------------------------- Inicio estilo Search -----------------------------------------*/
+#divSearch {
+  text-align: center;
+}
+
 input {
   border: 2px solid darkgray;
 }
@@ -83,22 +88,26 @@ select {
 
   width: 30px;
 }
-
-#div img{
-  max-width: 100px;
+#div2 {
+  margin: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: grid;
 }
 
-#div a {
+#div2 a {
   text-decoration: none;
   color: #000;
 }
 
-#div a:hover {
+#div2 a:hover {
   color:  #e0bf02;
 }
-table {
-  table-layout: auto;
+
+#favorito a:hover{
+  color:#e0bf02;
 }
+
 /*----------------------------------------- Inicio estilo Search -----------------------------------------*/
 /*----------------------------------------- Inicio estilo Footer -----------------------------------------*/
 footer {
