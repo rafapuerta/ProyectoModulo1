@@ -7,6 +7,7 @@ let randomUrl = "";
 let opciones = "";
 let poster = "";
 let resultado = "";
+let listafavoritos = [];
 /*----------------------------------------- Declaración de variables -----------------------------------------*/
 
 /*----------------------------------------- Funciones -----------------------------------------*/
@@ -18,28 +19,32 @@ function search() {
   tipo = document.getElementById("tipo").value;
   fetch(finalUrl(busqueda, anyo, tipo))
     .then(function (respuesta) {
-        return respuesta.json();
+      return respuesta.json();
     })
     .then(function (datos) {
       if (datos.Response === "False") {
         window.alert("Ha habido un error, por favor, vuelve a intentarlo");
       } else {
-      for (let i = 0; i < datos.Search.length; i++) {
-        opciones += `<div class="polaroid">
-        <img id="Poster" src="${datos.Search[i].Poster}" style="width: 100%" ; />
+        for (let i = 0; i < datos.Search.length; i++) {
+          opciones += `<div class="polaroid">
+        <img id="Poster" src="${
+          datos.Search[i].Poster
+        }" style="width: 100%" ; />
         <div class="container">
-          <h2 id="titulo"><a onclick="peliID(${datos.Search[i].imdbID})" href="">${datos.Search[i].Title}</a></h2>
+          <h2 id="titulo"><a onclick="peliID(${
+            datos.Search[i].imdbID
+          })" href="">${datos.Search[i].Title}</a></h2>
           <h4 id="anno">${datos.Search[i].Year}</h4>
         </div>
         <div id="favorito">
-          <img onclick="favorito()" id="heart" src="images/heart-outline.svg" alt="favorito"/>
+          <i onclick="hacerFavorito(${datos.Search[i].imdbID})" id="favorito" class="material-icons">${esFavorito(datos.Search[i].imdbID)}</i>
         </div>
       </div>
       `;
+        }
+        console.log( typeof datos.Search[0].imdbID )
+        document.getElementById("div2").innerHTML = opciones;
       }
-
-      document.getElementById("div2").innerHTML = opciones
-    }
     });
 }
 
@@ -65,6 +70,10 @@ function finalUrl(string, anyo, tipo) {
   }
   return newUrl;
 }
+
+
+
+
 
 function randomPeli() {
   randomUrl = url + "&s=" + letrasRandom(2);
@@ -94,9 +103,21 @@ function letrasRandom(tamano) {
   return resultado;
 }
 
-/* function manejarErrores(respuesta) {
-  if (!respuesta.ok) {
-      throw Error(respuesta.statusText);
+
+
+
+
+function esFavorito(id) {
+  for (let i = 0; i <= listafavoritos.length; i++) {
+    if (listafavoritos[i] == id) {
+      return "favorite";
+    } else {
+      return "favorite_border";
+    }
   }
-  return respuesta;
-} */
+}
+
+function hacerFavorito(id) {
+  listafavoritos.push(id);
+  localStorage.setItem("listafavoritos", JSON.stringify(listafavoritos));
+}

@@ -116,8 +116,8 @@ select {
   color:  #e0bf02;
 }
 
-#favorito a:hover{
-  color:#e0bf02;
+#favorito:hover{
+  color: red;
 }
 
 /*----------------------------------------- Inicio estilo Search -----------------------------------------*/
