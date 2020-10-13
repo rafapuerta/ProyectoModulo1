@@ -141,14 +141,13 @@ function hacerFavorito(id) {
 function ensenaFavoritos(){
   console.log(listaFavoritos)
   actualizaFavoritos();
-  if (listaFavoritos[1] !== undefined){
+  if (listaFavoritos[0] !== undefined){
     for (let i = 0 ; i< listaFavoritos.length ; i++){
       fetch(url + "&i=" + listaFavoritos[i])
         .then(function (respuesta) {
           return respuesta.json();
         })
         .then(function (datos) {
-          console.log(datos)
         favoritos += `<div id="peliFavorita">
           <div id="peliFavoritaPoster">
             <img src="${datos.Poster}" alt="${datos.Title}"/>

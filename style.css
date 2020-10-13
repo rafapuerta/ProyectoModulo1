@@ -41,9 +41,6 @@ nav ul {
       display: flex;
       flex-direction: column;
     }
-    nav li a {
-      
-    }
   }
 
 
@@ -81,7 +78,7 @@ div.container {
   padding: 10px 20px;
 }
 .polaroid img {
-  max-width: 200px;;
+  max-width: 400px;
 }
 
 
@@ -172,6 +169,8 @@ select {
 }
 #peliFavoritaPoster img {
   width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 #peliFavoritaDatos {
   text-align: left;
@@ -207,6 +206,9 @@ select {
 }
 /*----------------------------------------- Fin estilo Favorites -----------------------------------------*/
 /*----------------------------------------- Inicio estilo Footer -----------------------------------------*/
+
+
+
 footer {
     position: fixed;
     left: 0;
