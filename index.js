@@ -9,6 +9,7 @@ let poster = "";
 let resultado = "";
 let listaFavoritos = [];
 let listaTemporal = []
+let listaTemporal2 = []
 let favoritos = ""
 /*----------------------------------------- Declaración de variables -----------------------------------------*/
 
@@ -140,16 +141,18 @@ function hacerFavorito(id) {
 function ensenaFavoritos(){
   console.log(listaFavoritos)
   actualizaFavoritos();
-  if (listaFavoritos[0] !== 0){
+  if (listaFavoritos[1] !== undefined){
     for (let i = 0 ; i< listaFavoritos.length ; i++){
       fetch(url + "&i=" + listaFavoritos[i])
         .then(function (respuesta) {
           return respuesta.json();
         })
         .then(function (datos) {
+          console.log(datos)
         favoritos += `<div id="peliFavorita">
           <div id="peliFavoritaPoster">
             <img src="${datos.Poster}" alt="${datos.Title}"/>
+            <i onclick="hacerFavorito(${listaFavoritos[i]})" id="favorito" class="material-icons">${esFavorito(datos.imdbID)}</i>
           </div>
           <div id="peliFavoritaDatos">
             <h3>${datos.Title}</h3>
@@ -157,8 +160,9 @@ function ensenaFavoritos(){
             <h6><strong> Duración:</strong> ${datos.Runtime}</h6>
             <h6><strong> Director:</strong>  ${datos.Director}</h6>
             <h6><strong> Premios:</strong>  ${datos.Awards}</h6>
-            <h6><strong> Puntuancion:</strong>  Rotten Tomatoes${datos.Ratings[2].Value}</h6>
+            <h6><strong> Puntuancion:</strong>  Rotten Tomatoes: ${datos.Ratings[1].Value}</h6>
             <p>${datos.Plot}</p>
+            
           </div>
         </div>`
         document.getElementById("divFavoritos").innerHTML = favoritos
