@@ -4,11 +4,21 @@ header {
     left: 0;
     top: 0;
     width: 100%;
-  }
-  header div{
+    display: flex;
+    justify-content: space-between;
     background-color: #333;
+    align-items: center;
   }
-nav ul {
+  #logo {
+    background-color: #333;
+    margin: 5px 0px 0px 20px;
+    display: flex;
+    color: white;
+  }
+  #logo h1 {
+    margin: 10px;
+  }
+  nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0px 40px;
@@ -40,6 +50,21 @@ nav ul {
     nav ul {
       display: flex;
       flex-direction: column;
+      padding: 0px;
+    }
+    nav li a {
+      display: block;
+      color: white;
+      background-color: #333;
+      text-align: center;
+      padding: 10px 5px;
+      text-decoration: none;
+    }
+    header{
+      justify-content: space-evenly;
+    }
+    #logo h1 {
+      display: none;
     }
   }
 
@@ -47,11 +72,11 @@ nav ul {
 /*----------------------------------------- Fin estilo Navbar -----------------------------------------*/
 /*----------------------------------------- Inicio estilo Main -----------------------------------------*/
 main {
-  padding: 50px 40px 50px 40px;
+  padding: 80px 40px 50px 40px;
 }
 @media (max-width: 600px) {
   main {
-    padding: 200px 20px 50px 20px;
+    padding: 150px 20px 50px 20px;
   }
 }
 * {
@@ -111,6 +136,10 @@ div.container {
   }
   #intro {
     width: 90%;
+    margin-top: 0px;
+  }
+  #landing {
+    margin-top: 10px;
   }
 }
 

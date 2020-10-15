@@ -11,6 +11,7 @@ let listaFavoritos = [];
 let listaTemporal = []
 let listaTemporal2 = []
 let favoritos = ""
+let posicion
 /*----------------------------------------- Declaración de variables -----------------------------------------*/
 
 actualizaFavoritos()
@@ -92,8 +93,8 @@ function randomPeli() {
       anno = datos.Search[random].Year;
 
       document.getElementById("Poster").src = poster;
-      document.getElementById("titulo").innerHTML = titulo;
-      document.getElementById("anno").innerHTML = anno;
+      /* document.getElementById("titulo").innerHTML = titulo;
+      document.getElementById("anno").innerHTML = anno; */
     });
 }
 
@@ -101,7 +102,7 @@ function letrasRandom(tamano) {
   let resultado = "";
   let letras = "abcdefghijklmnopqrstuvwxyz";
   let longitud = letras.length;
-  for (var i = 0; i < tamano; i++) {
+  for (let i = 0; i < tamano; i++) {
     resultado += letras.charAt(Math.floor(Math.random() * longitud));
   }
   return resultado;
@@ -125,21 +126,20 @@ function esFavorito(id) {
 }
 
 function hacerFavorito(id) {
+    /* console.log(id)
     console.log(listaFavoritos)
-    console.log(listaTemporal[id])
+    console.log(listaTemporal[id]) */
     if ( !listaFavoritos.includes(listaTemporal[id])){
       listaFavoritos.push(listaTemporal[id]);
       localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos));
-      console.log(listaFavoritos)
     }else{
       listaFavoritos.splice(listaFavoritos.indexOf(listaTemporal[id]),listaFavoritos.indexOf(listaTemporal[id])+1)
       localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos));
-      console.log(listaFavoritos)
     }
 }
 
 function ensenaFavoritos(){
-  console.log(listaFavoritos)
+  listaTemporal = []
   actualizaFavoritos();
   if (listaFavoritos[0] !== undefined){
     for (let i = 0 ; i< listaFavoritos.length ; i++){
@@ -148,10 +148,11 @@ function ensenaFavoritos(){
           return respuesta.json();
         })
         .then(function (datos) {
-        favoritos += `<div id="peliFavorita">
+          listaTemporal.push(datos.imdbID)
+          favoritos += `<div id="peliFavorita">
           <div id="peliFavoritaPoster">
             <img src="${datos.Poster}" alt="${datos.Title}"/>
-            <i onclick="hacerFavorito(${listaFavoritos[i]})" id="favorito" class="material-icons">${esFavorito(datos.imdbID)}</i>
+            <i onclick="hacerFavorito(${i})" id="favorito" class="material-icons">${esFavorito(datos.imdbID)}</i>
           </div>
           <div id="peliFavoritaDatos">
             <h3>${datos.Title}</h3>
