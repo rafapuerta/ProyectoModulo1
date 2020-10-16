@@ -24,13 +24,15 @@ function search() {
   busqueda = document.getElementById("busqueda").value;
   anyo = document.getElementById("anyo").value;
   tipo = document.getElementById("tipo").value;
+  console.log(tipo)
+  console.log(fetch(finalUrl(busqueda, anyo, tipo)))
   fetch(finalUrl(busqueda, anyo, tipo))
     .then(function (respuesta) {
       return respuesta.json();
     })
     .then(function (datos) {
       if (datos.Response === "False") {
-        window.alert("Ha habido un error, por favor, vuelve a intentarlo");
+        window.alert("No se ha encontrado nada por estos términos. Por favor, vuelve a intentarlo");
       } else {
         for (let i = 0; i < datos.Search.length; i++) {
           listaTemporal.push (datos.Search[i].imdbID)
@@ -53,6 +55,69 @@ function search() {
     });
 }
 
+
+
+function finalUrl(string, anyo, tipo) {
+  if (anyo !== "") {
+    newUrl = url + "&s=" + string + "&y=" + anyo + "&type=" + tipo;
+  } else {
+    newUrl = url + "&s=" + string + "&type=" + tipo;
+  }
+  return newUrl;
+}
+
+/* -----------------------------------------------------------------Funciones random--------------------------------------------------------------------- */
+
+function randomPeli() {
+  randomUrl = url + "&s=" + consonanteRandom(1) + vocalRandom(1) + consonanteRandom (1);
+  console.log(randomUrl)
+  
+  fetch(randomUrl)
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      if (datos.Response !== "False" && datos.Search[0].Poster !== "N/A"){
+      do{
+        random = Math.floor(Math.random() * datos.Search.length)
+        poster = datos.Search[random].Poster;
+      }while (datos.Search[random].Poster === "N/A")
+      document.getElementById("Poster").src = poster;
+      }else{
+        randomPeli();
+      }
+    });
+}
+
+function vocalRandom(tamano) {
+  let resultado = "";
+  let letras = "aeiou";
+  let longitud = letras.length;
+  for (let i = 0; i < tamano; i++) {
+    resultado += letras.charAt(Math.floor(Math.random() * longitud));
+  }
+  return resultado;
+}
+
+function consonanteRandom(tamano) {
+  let resultado = "";
+  let letras = "bcdfghjklmnpqrstvwxyz";
+  let longitud = letras.length;
+  for (let i = 0; i < tamano; i++) {
+    resultado += letras.charAt(Math.floor(Math.random() * longitud));
+  }
+  return resultado;
+}
+
+/* --------------------------------------------------------------- Funciones Mostrar datos película --------------------------------------------------- */
+function abrePop() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function cierraPop() {
+  document.getElementById("popup").style.display = "none";
+}
+
 function peliID(id) {
   console.log(listaTemporal[id])
   abrePop();
@@ -69,10 +134,10 @@ function peliID(id) {
       <div id="peliFavoritaDatos">
         <h3>${datos.Title}</h3>
         <h4>${datos.Year}</h4>
-        <h6><strong> Duración:</strong> ${datos.Runtime}</h6>
-        <h6><strong> Director:</strong>  ${datos.Director}</h6>
-        <h6><strong> Premios:</strong>  ${datos.Awards}</h6>
-        <h6><strong> Puntuancion:</strong>  Rotten Tomatoes: ${datos.Ratings[1].Value}</h6>
+        <h6>Duración: ${datos.Runtime}</h6>
+        <h6>Director: ${datos.Director}</h6>
+        <h6>Premios: ${datos.Awards}</h6>
+        <h6>Puntuancion: ${datos.Ratings[0].Value}</h6>
         <p>${datos.Plot}</p>
         
       </div>
@@ -80,47 +145,7 @@ function peliID(id) {
     });
 }
 
-function finalUrl(string, anyo, tipo) {
-  if (anyo !== "") {
-    newUrl = url + "&s=" + string + "&y=" + anyo + "&type=" + tipo;
-  } else {
-    newUrl = url + "&s=" + string + "&type=" + tipo;
-  }
-  return newUrl;
-}
-
-
-
-function randomPeli() {
-  randomUrl = url + "&s=" + letrasRandom(2);
-  fetch("http://www.omdbapi.com/?apikey=22e38317&s=Batman")
-    .then(function (respuesta) {
-      return respuesta.json();
-    })
-    .then(function (datos) {
-      let random = Math.floor(Math.random() * datos.Search.length);
-      poster = datos.Search[random].Poster;
-      titulo = datos.Search[random].Title;
-      anno = datos.Search[random].Year;
-
-      document.getElementById("Poster").src = poster;
-      /* document.getElementById("titulo").innerHTML = titulo;
-      document.getElementById("anno").innerHTML = anno; */
-    });
-}
-
-function letrasRandom(tamano) {
-  let resultado = "";
-  let letras = "abcdefghijklmnopqrstuvwxyz";
-  let longitud = letras.length;
-  for (let i = 0; i < tamano; i++) {
-    resultado += letras.charAt(Math.floor(Math.random() * longitud));
-  }
-  return resultado;
-}
-
-
-
+/* -------------------------------------------------------------------------Funciones favoritos --------------------------------------------------------------------------- */
 function actualizaFavoritos (){
   if (localStorage.getItem('listaFavoritos') == null){
     localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos))
@@ -168,10 +193,10 @@ function ensenaFavoritos(){
           <div id="peliFavoritaDatos">
             <h3>${datos.Title}</h3>
             <h4>${datos.Year}</h4>
-            <h6><strong> Duración:</strong> ${datos.Runtime}</h6>
-            <h6><strong> Director:</strong>  ${datos.Director}</h6>
-            <h6><strong> Premios:</strong>  ${datos.Awards}</h6>
-            <h6><strong> Puntuancion:</strong>  Rotten Tomatoes: ${datos.Ratings[1].Value}</h6>
+            <h6>Duración: ${datos.Runtime}</h6>
+            <h6>Director: ${datos.Director}</h6>
+            <h6>Premios: ${datos.Awards}</h6>
+            <h6>Puntuancion: ${datos.Ratings[0].Value}</h6>
             <p>${datos.Plot}</p>
             
           </div>
@@ -185,10 +210,3 @@ function ensenaFavoritos(){
   
 }
 
-function abrePop() {
-  document.getElementById("popup").style.display = "block";
-}
-
-function cierraPop() {
-  document.getElementById("popup").style.display = "none";
-}
