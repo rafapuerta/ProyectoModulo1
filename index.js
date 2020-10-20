@@ -24,8 +24,8 @@ function search() {
   busqueda = document.getElementById("busqueda").value;
   anyo = document.getElementById("anyo").value;
   tipo = document.getElementById("tipo").value;
-  console.log(tipo)
-  console.log(fetch(finalUrl(busqueda, anyo, tipo)))
+ /*  console.log(tipo)
+  console.log(fetch(finalUrl(busqueda, anyo, tipo))) */
   fetch(finalUrl(busqueda, anyo, tipo))
     .then(function (respuesta) {
       return respuesta.json();
@@ -70,7 +70,7 @@ function finalUrl(string, anyo, tipo) {
 
 function randomPeli() {
   randomUrl = url + "&s=" + consonanteRandom(1) + vocalRandom(1) + consonanteRandom (1);
-  console.log(randomUrl)
+  /* console.log(randomUrl) */
   
   fetch(randomUrl)
     .then(function (respuesta) {
