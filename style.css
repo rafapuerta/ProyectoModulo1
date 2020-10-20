@@ -148,9 +148,14 @@ div.container {
 
 input {
   border: 2px solid darkgray;
+  border-radius: 5px;
 }
 select {
   border: 2px solid darkgray;
+  border-radius: 5px;
+}
+button {
+  border-radius: 5px;
 }
 
 #anyo {
